@@ -5,10 +5,14 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     if (addItem.value === "") {
         addItem.className = "error";
-        document.querySelector("#small").className = "smallError";
+        document.querySelector("small").className = "smallError";
     } else if (addItem.value != "") {
         addItem.className = "passed";
-        document.querySelector("#small").className = "unvis";
+        document.querySelector("small").className = "unvis";
+        setTimeout(changeBack, 1000);
+        function changeBack() {
+            addItem.className = "";
+        }
 
         const listOfItems = document.getElementById("listOfItems");
         const item = document.createElement("li");
